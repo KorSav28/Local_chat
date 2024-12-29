@@ -1,4 +1,4 @@
-#ifndef SOURCE_H
+п»ї#ifndef SOURCE_H
 #define SOURCE_H
 
 #include <iostream>
@@ -7,7 +7,7 @@ using namespace std;
 
 setlocale(LC_ALL, ""); 
 
-class UserData // для хранения данных о пользователе
+class UserData // РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РґР°РЅРЅС‹С… Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ
 {
 public:
     string login;
@@ -30,21 +30,21 @@ public:
     int n;
     string current_name;
 
-    User(int n) : user_count(0), n(n) // конструктор 
+    User(int n) : user_count(0), n(n) // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 
     {
         user_array = new UserData[n];
     }
 
-    ~User() // деструктор
+    ~User() // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
     {
         delete[] user_array;
     }
 
-    int menu() // для выбора операции: 1.Вход, 2.Регистрация, 3.Выход
+    int menu() // РґР»СЏ РІС‹Р±РѕСЂР° РѕРїРµСЂР°С†РёРё: 1.Р’С…РѕРґ, 2.Р РµРіРёСЃС‚СЂР°С†РёСЏ, 3.Р’С‹С…РѕРґ
     {
         int number;
-        cout << "Добро пожаловать" << endl;
-        cout << "Выберете номер операции: 1.Вход, 2.Регистрация, 3.Выход" << endl;
+        cout << "Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ" << endl;
+        cout << "Р’С‹Р±РµСЂРµС‚Рµ РЅРѕРјРµСЂ РѕРїРµСЂР°С†РёРё: 1.Р’С…РѕРґ, 2.Р РµРіРёСЃС‚СЂР°С†РёСЏ, 3.Р’С‹С…РѕРґ" << endl;
         cin >> number;
 
         if (number == 1)
@@ -57,17 +57,17 @@ public:
         }
         else if (number == 3)
         {
-            cout << "Выход из системы" << endl;
+            cout << "Р’С‹С…РѕРґ РёР· СЃРёСЃС‚РµРјС‹" << endl;
             return 1;
         }
         else
         {
-            cout << "Ошибка! Выберете 1, 2 или 3" << endl;
+            cout << "РћС€РёР±РєР°! Р’С‹Р±РµСЂРµС‚Рµ 1, 2 РёР»Рё 3" << endl;
         }
         return 0;
     }
 
-    void Registration() // для регистрации пользователя 
+    void Registration() // РґР»СЏ СЂРµРіРёСЃС‚СЂР°С†РёРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ 
     {
         string login, password, name;
         bool success = true;
@@ -76,11 +76,11 @@ public:
 
         while (success1)
         {
-            cout << "Введите свой логин: ";
+            cout << "Р’РІРµРґРёС‚Рµ СЃРІРѕР№ Р»РѕРіРёРЅ: ";
             cin >> login;
-            cout << "Введите свой пароль: ";
+            cout << "Р’РІРµРґРёС‚Рµ СЃРІРѕР№ РїР°СЂРѕР»СЊ: ";
             cin >> password;
-            cout << "Введите свое имя: ";
+            cout << "Р’РІРµРґРёС‚Рµ СЃРІРѕРµ РёРјСЏ: ";
             cin >> name;
 
             success = true;
@@ -94,18 +94,18 @@ public:
             {
                 user_array[user_count] = UserData(login, password, name);
                 user_count = user_count + 1;
-                cout << "Вы успешно зарегистрировались!" << endl;
+                cout << "Р’С‹ СѓСЃРїРµС€РЅРѕ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»РёСЃСЊ!" << endl;
                 success1 = false;
             }
             else
             {
-                cout << "Пользователь с таким именем или логином уже существует. Введите данные заново" << endl;
+                cout << "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ С‚Р°РєРёРј РёРјРµРЅРµРј РёР»Рё Р»РѕРіРёРЅРѕРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚. Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ Р·Р°РЅРѕРІРѕ" << endl;
             }
         }
         Entrance();
     }
 
-    void Entrance() // для входа зарегистрированного пользователя
+    void Entrance() // РґР»СЏ РІС…РѕРґР° Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
     {
         string login, password;
         bool success = true;
@@ -113,15 +113,15 @@ public:
 
         while (success)
         {
-            cout << "Введите свой логин: ";
+            cout << "Р’РІРµРґРёС‚Рµ СЃРІРѕР№ Р»РѕРіРёРЅ: ";
             cin >> login;
-            cout << "Введите свой пароль: ";
+            cout << "Р’РІРµРґРёС‚Рµ СЃРІРѕР№ РїР°СЂРѕР»СЊ: ";
             cin >> password;
 
             for (i = 0; i < user_count; ++i) {
                 if (login == user_array[i].login && password == user_array[i].password) {
                     success = false;
-                    cout << "Хорошего общения, " << user_array[i].name << "!" << endl;
+                    cout << "РҐРѕСЂРѕС€РµРіРѕ РѕР±С‰РµРЅРёСЏ, " << user_array[i].name << "!" << endl;
                     current_name = user_array[i].name;
                     break;
                 }
@@ -129,7 +129,7 @@ public:
 
             if (success)
             {
-                cout << "Ошибка! Неверный логин или пароль" << endl;
+                cout << "РћС€РёР±РєР°! РќРµРІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ" << endl;
             }
         }
     }

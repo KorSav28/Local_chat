@@ -1,4 +1,4 @@
-#ifndef MESSAGE_H
+п»ї#ifndef MESSAGE_H
 #define MESSAGE_H
 
 #include <iostream>
@@ -8,7 +8,7 @@ using namespace std;
 
 setlocale(LC_ALL, ""); 
 
-struct Message // для хранения данных о сообщениях, их отправителях и получателях 
+struct Message // РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РґР°РЅРЅС‹С… Рѕ СЃРѕРѕР±С‰РµРЅРёСЏС…, РёС… РѕС‚РїСЂР°РІРёС‚РµР»СЏС… Рё РїРѕР»СѓС‡Р°С‚РµР»СЏС… 
 {
     string sender;
     string getter;
@@ -29,23 +29,23 @@ public:
     Message* message_array;
     string current_name;
 
-    Account(int n) : mes_arr_size(0) // конструктор
+    Account(int n) : mes_arr_size(0) // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
     {
         message_array = new Message[n];
     }
 
-    ~Account() // деструктор 
+    ~Account() // РґРµСЃС‚СЂСѓРєС‚РѕСЂ 
     {
         delete[] message_array;
     }
 
-    int menu1(User& user) // метод для выбора действия 1.Написать личное сообщение; 2. Написать сообщение всем пользователям; 3.Выход
+    int menu1(User& user) // РјРµС‚РѕРґ РґР»СЏ РІС‹Р±РѕСЂР° РґРµР№СЃС‚РІРёСЏ 1.РќР°РїРёСЃР°С‚СЊ Р»РёС‡РЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ; 2. РќР°РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РІСЃРµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј; 3.Р’С‹С…РѕРґ
     {
         bool open = true;
         while (open)
         {
             int num;
-            cout << "Выберете действие: 1.Написать личное сообщение; 2. Написать сообщение всем пользователям; 3.Выход: " << endl;
+            cout << "Р’С‹Р±РµСЂРµС‚Рµ РґРµР№СЃС‚РІРёРµ: 1.РќР°РїРёСЃР°С‚СЊ Р»РёС‡РЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ; 2. РќР°РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РІСЃРµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј; 3.Р’С‹С…РѕРґ: " << endl;
             cin >> num;
             if (num == 1)
             {
@@ -62,15 +62,15 @@ public:
             }
             else
             {
-                cout << "Ошибка! Выберете 1, 2 или 3" << endl;
+                cout << "РћС€РёР±РєР°! Р’С‹Р±РµСЂРµС‚Рµ 1, 2 РёР»Рё 3" << endl;
             }
         }
         return 0;
     }
 
-    void Person_message(User& user) // для ввода сообщения конкретному пользователю
+    void Person_message(User& user) // РґР»СЏ РІРІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ РєРѕРЅРєСЂРµС‚РЅРѕРјСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ
     {
-        cout << "Выберете номер аккаунта: "<<endl;
+        cout << "Р’С‹Р±РµСЂРµС‚Рµ РЅРѕРјРµСЂ Р°РєРєР°СѓРЅС‚Р°: "<<endl;
         int m;
         string sender, getter, message;
         for (int i = 0; i < user.user_count; ++i)
@@ -87,7 +87,7 @@ public:
                     cout << message_array[i].sender << ": " << message_array[i].message << endl;
                 }
             }
-            cout << "Ваше сообщение: ";
+            cout << "Р’Р°С€Рµ СЃРѕРѕР±С‰РµРЅРёРµ: ";
             cin.ignore();
             getline(cin, message);
 
@@ -96,11 +96,11 @@ public:
         }
         else
         {
-            cout << "Ошибка! Неверный номер аккаунта" << endl;
+            cout << "РћС€РёР±РєР°! РќРµРІРµСЂРЅС‹Р№ РЅРѕРјРµСЂ Р°РєРєР°СѓРЅС‚Р°" << endl;
         }
     }
 
-    void All_message(User& user) // для ввода сообщения всем пользователям
+    void All_message(User& user) // РґР»СЏ РІРІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ РІСЃРµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј
     {
         string message;
         string getter = "everyone";
@@ -111,7 +111,7 @@ public:
                 cout << message_array[i].sender << ": " << message_array[i].message << endl;
             }
         }
-        cout << "Ваше сообщение: ";
+        cout << "Р’Р°С€Рµ СЃРѕРѕР±С‰РµРЅРёРµ: ";
         cin.ignore();
         getline(cin, message);
 
