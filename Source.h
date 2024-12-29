@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-class UserData
+class UserData // для хранения данных о пользователе
 {
 public:
     string login;
@@ -28,17 +28,17 @@ public:
     int n;
     string current_name;
 
-    User(int n) : user_count(0), n(n)
+    User(int n) : user_count(0), n(n) // конструктор 
     {
         user_array = new UserData[n];
     }
 
-    ~User()
+    ~User() // деструктор
     {
         delete[] user_array;
     }
 
-    int menu()
+    int menu() // для выбора операции: 1.Вход, 2.Регистрация, 3.Выход
     {
         int number;
         cout << "Добро пожаловать" << endl;
@@ -60,12 +60,12 @@ public:
         }
         else
         {
-            cout << "Ошибка! Выберете 1 или 2" << endl;
+            cout << "Ошибка! Выберете 1, 2 или 3" << endl;
         }
         return 0;
     }
 
-    void Registration()
+    void Registration() // для регистрации пользователя 
     {
         string login, password, name;
         bool success = true;
@@ -81,15 +81,11 @@ public:
             cout << "Введите свое имя: ";
             cin >> name;
 
-            while (success && i < user_count)
-            {
-                if (login == user_array[i].login || name == user_array[i].name)
-                {
+            success = true;
+            for (i = 0; i < user_count; ++i) {
+                if (login == user_array[i].login || name == user_array[i].name) {
                     success = false;
-                }
-                else
-                {
-                    i = i + 1;
+                    break;
                 }
             }
             if (success && user_count < n)
@@ -107,7 +103,7 @@ public:
         Entrance();
     }
 
-    void Entrance()
+    void Entrance() // для входа зарегистрированного пользователя
     {
         string login, password;
         bool success = true;
@@ -120,19 +116,15 @@ public:
             cout << "Введите свой пароль: ";
             cin >> password;
 
-            while (success && i < user_count)
-            {
-                if (login == user_array[i].login && password == user_array[i].password)
-                {
+            for (i = 0; i < user_count; ++i) {
+                if (login == user_array[i].login && password == user_array[i].password) {
                     success = false;
                     cout << "Хорошего общения, " << user_array[i].name << "!" << endl;
                     current_name = user_array[i].name;
-                }
-                else
-                {
-                    i = i + 1;
+                    break;
                 }
             }
+
             if (success)
             {
                 cout << "Ошибка! Неверный логин или пароль" << endl;

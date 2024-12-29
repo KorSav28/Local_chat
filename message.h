@@ -6,7 +6,7 @@
 #include "Source.h"
 using namespace std;
 
-struct Message
+struct Message // дл€ хранени€ данных о сообщени€х, их отправител€х и получател€х 
 {
     string sender;
     string getter;
@@ -27,17 +27,17 @@ public:
     Message* message_array;
     string current_name;
 
-    Account(int n) : mes_arr_size(0)
+    Account(int n) : mes_arr_size(0) // конструктор
     {
         message_array = new Message[n];
     }
 
-    ~Account()
+    ~Account() // деструктор 
     {
         delete[] message_array;
     }
 
-    int menu1(User& user)
+    int menu1(User& user) // метод дл€ выбора действи€ 1.Ќаписать личное сообщение; 2. Ќаписать сообщение всем пользовател€м; 3.¬ыход
     {
         bool open = true;
         while (open)
@@ -66,7 +66,7 @@ public:
         return 0;
     }
 
-    void Person_message(User& user)
+    void Person_message(User& user) // дл€ ввода сообщени€ конкретному пользователю
     {
         cout << "¬ыберете номер аккаунта: "<<endl;
         int m;
@@ -98,7 +98,7 @@ public:
         }
     }
 
-    void All_message(User& user)
+    void All_message(User& user) // дл€ ввода сообщени€ всем пользовател€м
     {
         string message;
         string getter = "everyone";
