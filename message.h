@@ -6,6 +6,8 @@
 #include "Source.h"
 using namespace std;
 
+setlocale(LC_ALL, ""); 
+
 struct Message // для хранения данных о сообщениях, их отправителях и получателях 
 {
     string sender;
